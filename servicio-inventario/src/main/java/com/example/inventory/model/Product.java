@@ -1,6 +1,8 @@
 package com.example.inventory.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 // Una entidad JPA para un producto con id, nombre, cantidad y precio.
 @Entity
@@ -11,12 +13,15 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @NotBlank(message = "El nombre del producto no puede estar vacío")
     @Column(name = "nombre", nullable = false)
     private String nombre;
     
+    @NotNull(message = "La cantidad no puede ser nula")
     @Column(name = "cantidad", nullable = false)
     private Integer cantidad;
     
+    @NotNull(message = "El precio no puede ser nulo")
     @Column(name = "precio", nullable = false)
     private Double precio;
     
