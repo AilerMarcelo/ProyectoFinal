@@ -54,3 +54,25 @@ servicio-inventario/
 ├── pom.xml
 └── README.md
 ```
+
+# Construir la imagen
+docker build -t servicio-inventario:1.0.0 .
+
+# Ejecutar el contenedor
+docker run -p 8080:8080 servicio-inventario:1.0.0
+
+# Acceder a la aplicación
+# http://localhost:8080/api/productos
+# http://localhost:8080/h2-console
+
+Archivo .dockerignore (opcional pero recomendado):
+target/
+.git
+.gitignore
+.idea
+.vscode
+*.md
+.DS_Store
+*.log
+.gradle
+build/
